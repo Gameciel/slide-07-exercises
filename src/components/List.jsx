@@ -11,7 +11,7 @@ export default function List(props) {
 
 	useEffect(() => {
 		for (let key in propsData) {
-			toArr.push(propsData[key]);
+			toArr.push(propsData[key].toString());
 		}
 
 		alert(`Datamu: \n${toArr}`);
