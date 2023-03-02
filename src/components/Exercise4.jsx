@@ -77,7 +77,7 @@ export default class Exercise4 extends Component {
 					</div>
 				</div>
 				<ul className="list-group mt-5">
-					<b className="mb-2">Fetched Data(s):</b>
+					<b className="mb-2">Fetched API Data(s):</b>
 					{this.renderDatas()}
 				</ul>
 			</>
