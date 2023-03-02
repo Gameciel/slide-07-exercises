@@ -5,6 +5,10 @@ export default class List extends Component {
 		console.log(this.state);
 	}
 	render() {
-		return <div className="container"></div>;
+		return (
+			<div className="container">
+				<h1>Belom ygy</h1>
+			</div>
+		);
 	}
 }
