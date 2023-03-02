@@ -13,10 +13,15 @@ export default class Exercise3 extends Component {
 			"Strawberry",
 			"Perssimon",
 		],
+		filtered: [],
 	};
 
+	componentDidMount() {
+		this.setState({ filtered: [...this.state.tags] });
+	}
+
 	renderTags = () => {
-		return this.state.tags.map(value => {
+		return this.state.filtered.map(value => {
 			return <button className="tagButton">{value}</button>;
 		});
 	};
@@ -28,6 +33,12 @@ export default class Exercise3 extends Component {
 
 	formHandler = input => {
 		this.setState({ input });
+
+		const filteredData = this.state.tags.filter(value => {
+			return value.toLowerCase().includes(input.toLowerCase());
+		});
+
+		this.setState({ filtered: [...filteredData] });
 	};
 
 	handleKeyDown = event => {
@@ -75,6 +86,7 @@ export default class Exercise3 extends Component {
 							style={{ borderRadius: "3px", border: "1px solid black" }}
 							type={"text"}
 							id="tag"
+							placeholder="Try typing 'Apple'"
 						></input>
 					</div>
 					{this.renderTags()}
