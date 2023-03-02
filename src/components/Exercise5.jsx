@@ -88,7 +88,8 @@ export default class Exercise5 extends Component {
 
 						<button className="btn btn-primary">
 							<Link
-								to={{ pathname: "/list", state: `${this.state.formData}` }}
+								to="/list"
+								state={this.state.formData}
 								style={{ color: "white" }}
 							>
 								Submit
