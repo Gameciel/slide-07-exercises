@@ -65,3 +65,21 @@ body {
 	padding: 0px 0px;
 	width: 25%;
 }
+
+.fetch-title {
+	font-family: serif;
+	font-weight: 600;
+}
+
+table,
+th,
+td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	font-family: serif;
+	text-align: center;
+}

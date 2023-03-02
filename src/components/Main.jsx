@@ -43,7 +43,7 @@ export default class Main extends Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className="container mt-5">
 				<nav aria-label="breadcrumb">
 					<ol className="breadcrumb justify-content-center">
 						{this.renderNav()}
