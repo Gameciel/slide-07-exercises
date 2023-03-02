@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export default class Exercise2 extends Component {
 	state = {
 		ongoing: false,
+		mmm: "0",
 		mm: 0,
 		ss: 0,
 	};
@@ -15,6 +16,10 @@ export default class Exercise2 extends Component {
 					this.setState({ ss: this.state.ss + 1 });
 				} else {
 					this.setState({ mm: this.state.mm + 1, ss: 0 });
+				}
+
+				if (this.state.mm >= 9) {
+					this.setState({ mmm: "" });
 				}
 			}, 1000);
 		}
@@ -51,11 +56,13 @@ export default class Exercise2 extends Component {
 					<div className="stopwatch-container">
 						{this.state.ss < 10 ? (
 							<p className="timer">
-								0{this.state.mm}:0{this.state.ss}
+								{this.state.mmm}
+								{this.state.mm}:0{this.state.ss}
 							</p>
 						) : (
 							<p className="timer">
-								0{this.state.mm}:{this.state.ss}
+								{this.state.mmm}
+								{this.state.mm}:{this.state.ss}
 							</p>
 						)}
 						<div className="timer-buttons">
