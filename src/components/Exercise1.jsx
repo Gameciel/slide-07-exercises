@@ -34,10 +34,10 @@ export default class Exercise1 extends Component {
 					</div>
 				</div>
 				<div className="container mx-3 my-3 px-3 py-3 d-flex flex-column justify-content-center align-items-center">
-					<ul class="list-group mb-5">
-						<li class="list-group-item d-flex justify-content-between align-items-center">
+					<ul className="list-group mb-5">
+						<li className="list-group-item d-flex justify-content-between align-items-center">
 							Total count:
-							<span class="ml-2 badge badge-primary badge-pill">
+							<span className="ml-2 badge badge-primary badge-pill">
 								{this.state.counter}
 							</span>
 						</li>
