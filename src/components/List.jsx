@@ -13,14 +13,15 @@ export default function List(props) {
 		for (let key in propsData) {
 			toArr.push(propsData[key]);
 		}
-		alert(`Datamu: ${toArr}`);
+
+		alert(`Datamu: \n${toArr}`);
+
 		setLoaded(true);
 	}, []);
 
 	return (
 		<>
 			<h1>Not yet</h1>
-			{loaded ? <p></p> : null}
 		</>
 	);
 }
