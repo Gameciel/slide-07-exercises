@@ -1,15 +1,10 @@
-import NavBar from "./components/NavBar";
+import Main from "./components/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
 	return (
 		<>
-			<NavBar />
-			<BrowserRouter>
-				<Routes>
-					<Route />
-				</Routes>
-			</BrowserRouter>
+			<Main />
 		</>
 	);
 }

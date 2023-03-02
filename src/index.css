@@ -5,3 +5,50 @@
 body {
 	margin: 0px;
 }
+
+.stopwatch-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: black;
+	padding: 0px 100px;
+	border-radius: 5px;
+}
+
+.timer {
+	align-self: center;
+	color: white;
+	font-family: serif;
+	font-size: 135px;
+	font-weight: 800;
+	margin-bottom: -15px;
+	margin-top: -20px;
+}
+
+.timer-buttons {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	margin-bottom: 45px;
+}
+
+.start-button {
+	border-radius: 7px;
+	padding: 14px 10px;
+	color: white;
+	background-color: #0aae02;
+}
+
+.stop-button {
+	border-radius: 7px;
+	padding: 14px 10px;
+	color: white;
+	background-color: #f00202;
+}
+
+.reset-button {
+	border-radius: 7px;
+	padding: 14px 10px;
+	color: white;
+	background-color: #ffc607;
+}

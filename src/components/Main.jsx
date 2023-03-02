@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import Exercises from "./Exercises";
 
-export default class NavBar extends Component {
+export default class Main extends Component {
 	state = {
 		location: 0,
 	};
@@ -44,8 +45,11 @@ export default class NavBar extends Component {
 		return (
 			<div className="container">
 				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb justify-content-center">{this.renderNav()}</ol>
+					<ol className="breadcrumb justify-content-center">
+						{this.renderNav()}
+					</ol>
 				</nav>
+				<Exercises of={this.state.location} />
 			</div>
 		);
 	}
