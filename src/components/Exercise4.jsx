@@ -26,8 +26,14 @@ export default class Exercise4 extends Component {
 					<td>{value.name}</td>
 					<td>{value.username}</td>
 					<td>{value.email}</td>
-					<td>Edit</td>
-					<td>Delete</td>
+					<td>
+						<button style={{ border: "transparent", backgroundColor: "white" }}>
+							Edit
+						</button>
+						<button style={{ border: "transparent", backgroundColor: "white" }}>
+							Delete
+						</button>
+					</td>
 				</tr>
 			);
 		});
