@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 export default function List(props) {
 	const location = useLocation();
@@ -22,6 +22,8 @@ export default function List(props) {
 	return (
 		<>
 			<h1>Not yet</h1>
+			<p>{toArr}</p>
+			<Link to="/slide-07-exercises/">Click here to return</Link>
 		</>
 	);
 }
