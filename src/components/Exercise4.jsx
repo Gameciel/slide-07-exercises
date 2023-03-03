@@ -151,8 +151,10 @@ export default class Exercise4 extends Component {
 							</p>
 						</div>
 					</div>
-					<div className="container mx-3 my-3 px-3 py-3">
-						<h1 className="fetch-title">Fetch API From JSON Placeholder</h1>
+					<div className="container mx-3 my-3 px-3 py-3 d-flex flex-column align-items-center">
+						<h2 className="fetch-title mb-4">
+							Fetch API From JSON Placeholder
+						</h2>
 						<table>
 							<thead>
 								<th>ID</th>
