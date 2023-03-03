@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 export default class Exercise4 extends Component {
 	state = {
+		originalData: [],
 		data: [],
 		toFilter: NaN,
 
@@ -13,7 +14,7 @@ export default class Exercise4 extends Component {
 
 	fetchData = () => {
 		Axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
-			this.setState({ data: res.data });
+			this.setState({ data: res.data, originalData: [...res.data] });
 		});
 	};
 
@@ -31,7 +32,10 @@ export default class Exercise4 extends Component {
 	};
 
 	saveEditHandler = (index, id) => {
+		const beforeEdit = this.state.data.at(index);
+
 		this.state.data.splice(index, 1, {
+			...beforeEdit,
 			id: id,
 			name: this.state.editName,
 			username: this.state.editUsername,
@@ -46,7 +50,7 @@ export default class Exercise4 extends Component {
 	};
 
 	renderDatas = () => {
-		return this.state.data.map(value => {
+		return this.state.originalData.map(value => {
 			return <li className="list-group-item">{JSON.stringify(value)}</li>;
 		});
 	};
