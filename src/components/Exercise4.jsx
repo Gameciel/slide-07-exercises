@@ -4,6 +4,11 @@ import React, { Component } from "react";
 export default class Exercise4 extends Component {
 	state = {
 		data: [],
+		toFilter: NaN,
+
+		editName: "",
+		editUsername: "",
+		editEmail: "",
 	};
 
 	fetchData = () => {
@@ -16,6 +21,30 @@ export default class Exercise4 extends Component {
 		const removed = this.state.data.filter(val => val.id !== id);
 		this.setState({ data: [...removed] });
 	};
+
+	editDataHandlerButton = index => {
+		this.setState({ toFilter: index });
+	};
+
+	editDataHandler = e => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
+
+	saveEditHandler = (index, id) => {
+		this.state.data.splice(index, 1, {
+			id: id,
+			name: this.state.editName,
+			username: this.state.editUsername,
+			email: this.state.editEmail,
+		});
+
+		this.setState({ toFilter: NaN });
+	};
+
+	cancelEditHandler = () => {
+		this.setState({ toFilter: NaN });
+	};
+
 	renderDatas = () => {
 		return this.state.data.map(value => {
 			return <li className="list-group-item">{JSON.stringify(value)}</li>;
@@ -24,25 +53,74 @@ export default class Exercise4 extends Component {
 
 	renderTable = () => {
 		return this.state.data.map((value, index) => {
-			return (
-				<tr>
-					<td>{value.id}</td>
-					<td>{value.name}</td>
-					<td>{value.username}</td>
-					<td>{value.email}</td>
-					<td>
-						<button style={{ border: "transparent", backgroundColor: "white" }}>
-							Edit
-						</button>
-						<button
-							onClick={() => this.deleteDataHandler(value.id)}
-							style={{ border: "transparent", backgroundColor: "white" }}
-						>
-							Delete
-						</button>
-					</td>
-				</tr>
-			);
+			if (index !== this.state.toFilter) {
+				return (
+					<tr>
+						<td>{value.id}</td>
+						<td>{value.name}</td>
+						<td>{value.username}</td>
+						<td>{value.email}</td>
+						<td>
+							<button
+								onClick={() => this.editDataHandlerButton(index)}
+								style={{ border: "transparent", backgroundColor: "white" }}
+							>
+								Edit
+							</button>
+							<button
+								onClick={() => this.deleteDataHandler(value.id)}
+								style={{ border: "transparent", backgroundColor: "white" }}
+							>
+								Delete
+							</button>
+						</td>
+					</tr>
+				);
+			} else {
+				return (
+					<tr>
+						<td>{value.id}</td>
+						<td>
+							<input
+								placeholder={`Was: ${value.name}`}
+								onChange={e => this.editDataHandler(e)}
+								name="editName"
+								type={"text"}
+							></input>
+						</td>
+						<td>
+							<input
+								placeholder={`Was: ${value.username}`}
+								onChange={e => this.editDataHandler(e)}
+								name="editUsername"
+								type={"text"}
+							></input>
+						</td>
+						<td>
+							<input
+								placeholder={`Was: ${value.email}`}
+								onChange={e => this.editDataHandler(e)}
+								name="editEmail"
+								type={"email"}
+							></input>
+						</td>
+						<td>
+							<button
+								onClick={e => this.saveEditHandler(e, value.id)}
+								style={{ border: "transparent", backgroundColor: "white" }}
+							>
+								Save
+							</button>
+							<button
+								onClick={this.cancelEditHandler}
+								style={{ border: "transparent", backgroundColor: "white" }}
+							>
+								Cancel
+							</button>
+						</td>
+					</tr>
+				);
+			}
 		});
 	};
 
