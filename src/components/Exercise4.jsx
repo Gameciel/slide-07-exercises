@@ -12,6 +12,10 @@ export default class Exercise4 extends Component {
 		});
 	};
 
+	deleteDataHandler = id => {
+		const removed = this.state.data.filter(val => val.id !== id);
+		this.setState({ data: [...removed] });
+	};
 	renderDatas = () => {
 		return this.state.data.map(value => {
 			return <li className="list-group-item">{JSON.stringify(value)}</li>;
@@ -22,7 +26,7 @@ export default class Exercise4 extends Component {
 		return this.state.data.map((value, index) => {
 			return (
 				<tr>
-					<td>{index + 1}</td>
+					<td>{value.id}</td>
 					<td>{value.name}</td>
 					<td>{value.username}</td>
 					<td>{value.email}</td>
@@ -30,7 +34,10 @@ export default class Exercise4 extends Component {
 						<button style={{ border: "transparent", backgroundColor: "white" }}>
 							Edit
 						</button>
-						<button style={{ border: "transparent", backgroundColor: "white" }}>
+						<button
+							onClick={() => this.deleteDataHandler(value.id)}
+							style={{ border: "transparent", backgroundColor: "white" }}
+						>
 							Delete
 						</button>
 					</td>
