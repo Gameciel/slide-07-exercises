@@ -66,12 +66,14 @@ export default class Exercise4 extends Component {
 						<td>{value.email}</td>
 						<td>
 							<button
+								disabled={this.state.toFilter > -1}
 								onClick={() => this.editDataHandlerButton(index)}
 								style={{ border: "transparent", backgroundColor: "white" }}
 							>
 								Edit
 							</button>
 							<button
+								disabled={this.state.toFilter > -1}
 								onClick={() => this.deleteDataHandler(value.id)}
 								style={{ border: "transparent", backgroundColor: "white" }}
 							>
