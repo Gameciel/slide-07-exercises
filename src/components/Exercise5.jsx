@@ -13,6 +13,7 @@ export default class Exercise5 extends Component {
 	};
 
 	decreaseFormHandler = () => {
+		delete this.state.formData[this.state.listQty];
 		if (this.state.listQty > 1) {
 			this.setState({ listQty: this.state.listQty - 1 });
 		}
