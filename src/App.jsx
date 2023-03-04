@@ -6,14 +6,17 @@ import axios from "axios";
 
 function App() {
 	useEffect(() => {
-		let req = new XMLHttpRequest();
 		let time = new Date();
-		let prevData = [];
+		let newData = [];
 
 		axios
 			.get(`https://api.jsonbin.io/v3/b/640371ffebd26539d0891f86`)
 			.then(res => {
-				prevData = [...res.data.record.visit, time].split("");
+				newData = [...res.data.record.visit, time.toString()];
+			})
+			.finally(() => {
+				let req = new XMLHttpRequest();
+
 				req.open(
 					"PUT",
 					"https://api.jsonbin.io/v3/b/640371ffebd26539d0891f86",
@@ -24,7 +27,7 @@ function App() {
 					"X-Master-Key",
 					"$2b$10$1OumGkPA7lQAOO.GfhNfvOmPvxfWvrVA2ZSD2NsZ7ZEzFkjwbpC3O"
 				);
-				req.send(`{"visit": "${prevData}"`);
+				req.send(`{"visit": ${JSON.stringify(newData)}}`);
 			});
 	}, []);
 
