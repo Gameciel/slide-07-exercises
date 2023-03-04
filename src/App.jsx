@@ -13,7 +13,7 @@ function App() {
 		axios
 			.get(`https://api.jsonbin.io/v3/b/640371ffebd26539d0891f86`)
 			.then(res => {
-				prevData = [...res.data, time].split("");
+				prevData = [...res.data.record.visit, time].split("");
 				req.open(
 					"PUT",
 					"https://api.jsonbin.io/v3/b/640371ffebd26539d0891f86",
